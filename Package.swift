@@ -5,19 +5,16 @@ import PackageDescription
 
 let package = Package(
     name: "SwiftLiftKit",
+    platforms: [.iOS(.v16)], // uses Vision foreground mask on iOS 17+, people fallback earlier
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "SwiftLiftKit",
-            targets: ["SwiftLiftKit"]
-        ),
+        .library(name: "SwiftLiftKit", targets: ["SwiftLiftKit"])
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "SwiftLiftKit"
-        ),
-
+            name: "SwiftLiftKit",
+            dependencies: [],
+            path: "Sources/SwiftLiftKit",
+            resources: []
+        )
     ]
 )
