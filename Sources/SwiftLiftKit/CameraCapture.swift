@@ -11,9 +11,10 @@ import AVFoundation
 final class CameraCapture: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     // Concurrency-safe association key
-    private static let assocKey: UnsafeRawPointer = {
-        UnsafeRawPointer(bitPattern: "CameraCaptureAssocKey".hashValue)!
-    }()
+    private static var assocKeyStorage: UInt8 = 0
+    private static var assocKey: UnsafeRawPointer {
+        UnsafeRawPointer(&assocKeyStorage)
+    }
 
     private var continuation: CheckedContinuation<UIImage, Error>?
     private weak var presenter: UIViewController?

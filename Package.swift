@@ -14,7 +14,7 @@ let package = Package(
             name: "SwiftLiftKit",
             dependencies: [],
             path: "Sources/SwiftLiftKit",
-            resources: []
+
         )
     ]
 )
